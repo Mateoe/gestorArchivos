@@ -2,35 +2,20 @@
 <html lang = "es">
 <head>
 	<meta charset="utf-8">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="../../../estilos.css" TYPE="text/css" MEDIA=screen>
 	<title>Explorador de archivos</title>
 </head>
 <body>
-	<header><h1>Trabajo 01 - Explorador de archivos Linux</h1></header>
+	<header class="container"><h1 class="header">Explorador de archivos Linux</h1></header>
 	
-
+	<div class="container mt-3">
+	<div class="row">
+	<div class="col-5 px-6">
 	<section>
-		<form action="controladores/controlador.php" method="get">
-			<?php
-				if(!empty($_GET["ruta"])){
-					$ruta = $_GET["ruta"];
-				}
-				else{
-					$ruta = "raiz";
-				}
-					
-
-				echo "<input type='text' name='ruta' value=$ruta />";
-			?>
-			<br><br><input type="text" name="nombre" placeholder="Escribe un nombre" /><input type="submit" name="action" value="crear"/><br><br>
-			<input type="radio" name="tipo" value="carpeta" checked/>Carpeta
-			<input type="radio" name="tipo" value="archivo"/>Archivo
-		</form>
-	</section>
-
-
-
-	<section>
-		<!-- Script php para mostrar carpetas-->
 		<?php
 		include("controladores/controladorLista.php");
 		if(!empty($_GET["ruta"])){
@@ -41,29 +26,90 @@
 		}
 		
 		$listaConTipoMostrar=listar("controladores/$rutaActual");
-		echo "<ul>";
+		?> 
+		
+        <table class="table border-rounded table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" class="text-center">Nombre</th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+                        </tr>
+					</thead>
+	    	<tbody>  
+					
+        <?php
+		
 		foreach($listaConTipoMostrar as $elemento =>$tipo){
 			if($tipo=="directorio"){
 				$nuevaRuta=$rutaActual."/".$elemento;
-				echo "<li><a href='controladores/controlador.php?ruta=$nuevaRuta'>$elemento</a></li>";
+				?> 
+				<tr>
+					
+				   <td><a href='controladores/controlador.php?ruta=<?=$nuevaRuta;?>'><?=$elemento;?></a></td>
+				   <td></td>
+				<?php
 			}
 			elseif($tipo=="archivo"){
-				echo "<li>$elemento</li>";
+				?> 
+				
+				<td><?=$elemento;?></td>
+				<td></td>
+				<?php
 			}
+			?>
+			    <td>
+                        <form action="delete_p.php" method="POST">
+                            <button class="btn btn-danger" title="eliminar" type="submit"><i class="fas fa-trash-alt"></i></button>
+                        </form>
+				</td>
+				<td class="mx-0 pr-2">
+                    <form action="clientes.php" method="GET">
+                        <button class="btn btn-success" title="editar" type="submit"><i class="far fa-edit"></i></button>
+                    </form>
+				</td>
+				
+				<td class="mx-0 pr-2">
+                    <form action="clientes.php" method="GET">
+                        <button class="btn btn-primary" title="editar" type="submit"><i class="fas fa-question-circle"></i></button>
+                    </form>
+				</td>
+			</tr>
+			<?php
 		}
-		echo "</ul>";
+		
 		?> 
-	</section>
+		
+		</tbody>	
+		</table>
+		  <div class="container opciones">
+		   <form action="controladores/controlador.php" method="get">
+		   <?php
+				if(!empty($_GET["ruta"])){
+					$ruta = $_GET["ruta"];
+				}
+				else{
+					$ruta = "raiz";
+				}
+					
 
-	<footer>
-		Universidad Nacional de Colombia Sede Medellin
-		<br><br>
-		Trabajo 02 - Sistemas Operativos
-		<br><br>
-		Integrantes:
-		<ul>
-			<li>Mateo Espinal Londoño</li>
-		</ul>
-	</footer>
+				echo "<input id='barra' type='text' name='ruta' value=$ruta />";
+			   ?>
+				<input id="barra" type="text" name="nombre" placeholder="Escribe un nombre" />
+			
+				<input class="btn btn-primary mg5" type="submit" name="action" value="Crear"/>
+			    <input class="mg5" type="radio" name="tipo" value="carpeta" checked/>Carpeta
+				<input class="mg5" type="radio" name="tipo" value="archivo"/>Archivo
+				
+		    </form>
+			</div>
+	</section>
+	</div>
+
+	
+	</div>
+	</div>
 </body>
 </html>
