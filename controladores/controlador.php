@@ -21,30 +21,14 @@ function crearArchivo($archivo,$ruta){
     }
 }
 
-#Funcion para borrar los directorios
-function borrarDirectorio($directorio,$ruta){
-    if (is_dir($directorio)) {
-        exec("rm -r $ruta/$directorio");
-    }
-    else{
-        echo "<h1>No existe el directorio</h1>";
-    }
-}
-#Funcion para borrar los archivos
-function borrarArchivo($archivo,$ruta){
-    if (is_file($archivo)) {
-        exec("rm $ruta/$archivo");
-    }
-    else{
-        echo "<h1>No existe el archivo</h1>";
-    }
+function cambiarNombre($viejo,$nuevo,$ruta){
+    shell_exec("mv $ruta/$viejo $ruta/$nuevo");
 }
 
 #Se obienen los datos del index
 
 $action = $_GET['action'];
 $rutaActual = $_GET["ruta"];
-
 
 if($action == "crear"){
     $nombre = $_GET['nombre'];
@@ -58,19 +42,12 @@ if($action == "crear"){
     }
 }
 
-if($action == "borrar"){
-    $nombre = $_GET['nombre'];
-    $tipo = $_GET['tipo'];
-
-    if($tipo == 'carpeta'){
-        borrarDirectorio($nombre,$rutaActual);
-    }
-    elseif($tipo == 'archivo'){
-        borrarArchivo($nombre,$rutaActual);
-    }
+if($action == "editar"){
+    $viejo = $_GET['viejo'];
+    $nuevo = $_GET['nuevo'];
+    cambiarNombre($viejo,$nuevo,$rutaActual);
+    
 }
-
-
 
 
 #Se redirige la pagina la index nuevamente

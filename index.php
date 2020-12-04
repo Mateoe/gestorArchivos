@@ -9,7 +9,41 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="estilos.css" TYPE="text/css" MEDIA=screen>
 	<title>Explorador de archivos</title>
-	<title>Explorador de archivos</title>
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cambiar nombre</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Salir">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+	  <form action="controladores/controlador.php" method="get">
+      <div class="modal-body">
+	    <input id="barra" type="text" name="nuevo" placeholder="Ingresa un nuevo nombre" />
+		<input id="barra" type="text" name="viejo" hidden/>
+		<?php
+				if(!empty($_GET["ruta"])){
+					$ruta = $_GET["ruta"];
+				}
+				else{
+					$ruta= "raiz";
+				}
+					
+
+				echo "<input id='barra2' type='text' name='ruta' value=$ruta hidden/>";
+		?>
+		
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+        <input type="submit" class="btn btn-primary" name="action" value="editar"></input>
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>
 </head>
 <body>
 	<header class="container"><h1 class="header">Explorador de archivos Linux</h1></header>
@@ -93,9 +127,8 @@
 				</td>
 				
 				<td class="mx-0 pr-2">
-                    <form action="clientes.php" method="GET">
-                        <button class="btn btn-success" title="editar" type="submit"><i class="far fa-edit"></i></button>
-                    </form>
+                        <button class="btn btn-success" title="editar" type="submit" data-toggle="modal" data-target="#exampleModal" data-whatever=<?=$elemento;?>><i class="far fa-edit"></i></button>
+						
 				</td>
 				
 				<td class="mx-0 pr-2">
@@ -113,5 +146,10 @@
 	</table>
 	
 	</section>
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="functions.js"></script>
 </body>
 </html>

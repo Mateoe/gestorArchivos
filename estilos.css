@@ -10,7 +10,15 @@
     width: 100%;
 }
 
+#barra2{
+    margin: auto auto 10px;
+    width: 100%;
+}
 .mg5{
     margin: 0 0 0 5px;
+}
+
+.mgt5{
+    margin: 10px;
 }
 
