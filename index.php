@@ -21,7 +21,11 @@
 
 				echo "<input type='text' name='ruta' value=$ruta />";
 			?>
-			<br><br><input type="text" name="nombre" placeholder="Escribe un nombre" /><input type="submit" name="action" value="crear"/><br><br>
+			<br><br><input type="text" name="nombre" placeholder="Escribe un nombre" /><input type="submit" name="action" value="crear"/>
+            <input type="submit" name="action" value="borrar"/>
+            <input type="submit" name="action" value="copiar"/>
+            <input type="submit" name="action" value="pegar"/>
+            <input type="submit" name="action" value="cortar"/><br><br>
 			<input type="radio" name="tipo" value="carpeta" checked/>Carpeta
 			<input type="radio" name="tipo" value="archivo"/>Archivo
 		</form>

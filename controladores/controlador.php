@@ -21,6 +21,25 @@ function crearArchivo($archivo,$ruta){
     }
 }
 
+#Funcion para borrar los directorios
+function borrarDirectorio($directorio,$ruta){
+    if (is_dir($directorio)) {
+        shell_exec("rm -r $ruta/$directorio");
+    }
+    else{
+        echo "<h1>No existe el directorio</h1>";
+    }
+}
+#Funcion para borrar los archivos
+function borrarArchivo($archivo,$ruta){
+    if (is_file($archivo)) {
+        shell_exec("rm $ruta/$archivo");
+    }
+    else{
+        echo "<h1>No existe el archivo</h1>";
+    }
+}
+
 #Se obienen los datos del index
 
 $action = $_GET['action'];
@@ -36,6 +55,18 @@ if($action == "crear"){
     }
     elseif($tipo == 'archivo'){
         crearArchivo($nombre,$rutaActual);
+    }
+}
+
+if($action == "borrar"){
+    $nombre = $_GET['nombre'];
+    $tipo = $_GET['tipo'];
+
+    if($tipo == 'carpeta'){
+        borrarDirectorio($nombre,$rutaActual);
+    }
+    elseif($tipo == 'archivo'){
+        borrarArchivo($nombre,$rutaActual);
     }
 }
 
