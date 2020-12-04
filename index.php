@@ -29,7 +29,8 @@
 				echo "<input id='barra' type='text' name='ruta' value=$ruta />";
 			?>
 			<input id="barra" type="text" name="nombre" placeholder="Escribe un nombre" />
-			<input class="btn btn-primary mg5" type="submit" name="action" value="crear"/><br><br>
+			<input class="btn btn-primary mg5" type="submit" name="action" value="crear"/>
+            <input class="btn btn-primary mg5" type="submit" name="action" value="borrar"/><br><br>
 			<input class="mg5" type="radio" name="tipo" value="carpeta" checked/>Carpeta
 			<input class="mg5" type="radio" name="tipo" value="archivo"/>Archivo
 		</form>
