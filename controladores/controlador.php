@@ -24,7 +24,7 @@ function crearArchivo($archivo,$ruta){
 #Funcion para borrar los directorios
 function borrarDirectorio($directorio,$ruta){
     if (is_dir($directorio)) {
-        shell_exec("rm -r $ruta/$directorio");
+        exec("rm -r $ruta/$directorio");
     }
     else{
         echo "<h1>No existe el directorio</h1>";
@@ -33,7 +33,7 @@ function borrarDirectorio($directorio,$ruta){
 #Funcion para borrar los archivos
 function borrarArchivo($archivo,$ruta){
     if (is_file($archivo)) {
-        shell_exec("rm $ruta/$archivo");
+        exec("rm $ruta/$archivo");
     }
     else{
         echo "<h1>No existe el archivo</h1>";
