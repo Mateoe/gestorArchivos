@@ -65,7 +65,7 @@
 							<option value="espinal">Espinal</option>
 							<option value="mateo">Mateo</option>
 						   </select>
-
+                           <input id="barra" type="text" name="objeto" hidden/>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
@@ -125,7 +125,8 @@
 							<option value="6">6</option>
 							<option value="7">7</option>
 						   </select>
-                           </div>
+						   </div>
+						   <input id="barra" type="text" name="objeto" hidden/>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
