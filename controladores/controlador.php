@@ -12,7 +12,7 @@ function crearDirectorio($directorio,$ruta){
 }
 #Funcion para crear los archivos
 function crearArchivo($archivo,$ruta){
-    if (is_file($archivo)) {
+    if (!is_file($archivo)) {
         shell_exec("touch $ruta/$archivo");
         shell_exec("chmod 777 $ruta/$archivo");
     }
