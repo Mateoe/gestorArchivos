@@ -23,16 +23,16 @@ function crearArchivo($archivo,$ruta){
 
 function eliminarDirectorio($directorio,$ruta){
     if (is_dir($directorio)) {
-        shell_exec("rm -rf $ruta/$directorio");
+        shell_exec("rm -rf $directorio");
     }
     else{
         echo "<h1>Ya existe el directorio</h1>";
     }
 }
-#Funcion para crear los archivos
+#Funcion para eliminar los archivos
 function eliminarArchivo($archivo,$ruta){
     if (!is_file($archivo)) {
-        shell_exec("rm $ruta/$archivo");
+        shell_exec("rm $archivo");
     }
     else{
         echo "<h1>Ya existe el archivo</h1>";
