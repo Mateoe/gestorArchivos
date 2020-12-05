@@ -7,8 +7,9 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-		<link rel="stylesheet" href="estilos.css" TYPE="text/css" MEDIA=screen>
+		
 		<link rel="stylesheet" href="switchery.css" />
+		<link rel="stylesheet" href="estilos2.css" TYPE="text/css">
 	    <title>Explorador de archivos</title>
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -42,13 +43,104 @@
 	              </form>
                 </div>
             </div>
+		</div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cambiar usuario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Salir">
+                            <span aria-hidden="true">&times;</span>
+                         </button>
+                    </div>
+	               <form action="controladores/controlador.php" method="get">
+                        <div class="modal-body">
+	                       <label>Usuarios: </label>
+		                   <select class="form-control" id="lista-usuarios" name="lista-usuarios">
+						   <option value="creador">Creador</option>
+							<option value="alvarez">Alvarez</option>
+							<option value="beltran">Beltran</option>
+							<option value="espinal">Espinal</option>
+							<option value="mateo">Mateo</option>
+						   </select>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+                            <input type="submit" class="btn btn-primary" name="action" value="cambiar"></input>
+                        </div>
+	              </form>
+                </div>
+            </div>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cambiar usuario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Salir">
+                            <span aria-hidden="true">&times;</span>
+                         </button>
+                    </div>
+	               <form action="controladores/controlador.php" method="get">
+                        <div class="modal-body">
+						<div class="form-group">
+	                       <label for="lista-propietario">Propietario: </label>
+		                   <select class="form-control" id="lista-propietario" name="lista-usuarios">
+						   <option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+						   </select>
+							</div>
+							<div class="form-group">
+						   <label for="lista-grupo">Grupo: </label>
+						   <select class="form-control" id="lista-grupo" name="lista-usuarios">
+						   <option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+						   </select>
+						   </div>
+						   <div class="form-group">
+						   <label for="lista-otros">Otros: </label>
+						   <select class="form-control" id="lista-otros" name="lista-usuarios">
+						   <option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+						   </select>
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+                            <input type="submit" class="btn btn-primary" name="action" value="guardar"></input>
+                        </div>
+	              </form>
+                </div>
+            </div>
         </div>
 </head>
 <body>
 	<header class="container"><h1 class="header">Explorador de archivos Linux</h1></header>
-	<div class="container mt-3">
-	    <div class="row">
-	        <div class="container opciones col-6 px-2">
+	<div class="container-fluid">
+	    <div class="row justify-content-start">
+	        <div class="container opciones col-4 ">
 			    <div class="card" style="background: #f0f2f5">
                     <div class="card-header">
                         Crear archivo/carpeta
@@ -81,7 +173,7 @@
 				</div>
 				</div>
 		    </div>
-	<div class="col-6 px-0">
+	<div class="col-8">
 
 		<?php
 		include("controladores/controladorLista.php");
@@ -99,6 +191,8 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col" class="text-center">Nombre</th>
+							<th scope="col" class="text-center">Usuario</th>
+							<th scope="col" class="text-center">Permisos</th>
 							<th></th>
 							<th></th>
 							<th></th>
@@ -124,14 +218,14 @@
 				<tr>
 					
 				   <td><a href='controladores/controlador.php?ruta=<?=$nuevaRuta;?>'><?=$elemento;?></a></td>
-				   <td></td>
+				   
 				<?php
 			}
 			else{
 			?> 
 				
 				<td><?=$elemento;?></td>
-				<td></td>
+				
 				<?php
 			}
 			?>
@@ -145,21 +239,31 @@
 				</td>
 
 			    <td>
-                    <a href="controladores/controlador.php?nombre=<?=$elemento?>&tipo=<?=$tipo?>&ruta=<?=$rutaActual?>&action=eliminar">eliminar</a>
-                    <!--<form action="controladores/controlador.php?nombre=<?=$elemento?>&tipo=<?=$tipo?>&ruta=<?=$rutaActual?>" method="GET">
-                            <button class="btn btn-danger" title="eliminar" type="submit"><i class="fas fa-trash-alt"></i></button>
-                        </form>-->
+                   <!--  <a href="controladores/controlador.php?nombre=<?=$elemento?>&tipo=<?=$tipo?>&ruta=<?=$rutaActual?>&action=eliminar">eliminar</a>-->
+                   <form action="controladores/controlador.php" method="GET">
+							<button class="btn btn-danger" title="eliminar" type="submit"><i class="fas fa-trash-alt"></i></button>
+							<input type="text" name="nombre" value=<?=$elemento?> hidden>
+							<input type="text" name="tipo" value=<?=$tipo?> hidden>
+							<input type="text" name="ruta" value=<?=$rutaActual?> hidden>
+							<input type="text" name="action" value="eliminar" hidden>
+                        </form>
 				</td>
 				
 				<td class="mx-0 pr-2">
-                        <button class="btn btn-success" title="editar" type="submit" data-toggle="modal" data-target="#exampleModal" data-whatever=<?=$elemento;?>><i class="far fa-edit"></i></button>
+                        <button class="btn btn-success" title="editar nombre" type="submit" data-toggle="modal" data-target="#exampleModal" data-whatever=<?=$elemento;?>><i class="far fa-edit"></i></button>
 						
 				</td>
 				
+				
 				<td class="mx-0 pr-2">
-                    <form action="clientes.php" method="GET">
-                        <button class="btn btn-primary" title="editar" type="submit"><i class="fas fa-question-circle"></i></button>
-                    </form>
+                    
+                        <button class="btn btn-primary" title="editar usuario" type="submit" data-toggle="modal" data-target="#exampleModal2" data-whatever=<?=$elemento;?>><i class="far fa-user"></i></button>
+                   
+				</td>
+				<td class="mx-0 pr-2">
+                 
+                        <button class="btn btn-info" title="editar permisos" type="submit" data-toggle="modal" data-target="#exampleModal3" data-whatever=<?=$elemento;?>><i class="fas fa-question-circle"></i></button>
+                    
 				</td>
 				<td>
 				<input class="mg5" type="checkbox" name="tipo" value="archivo"/>

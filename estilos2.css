@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    justify-content: center;
+    margin: 18px auto;
+    width: 100%;
+}
+
+#barra{
+    margin: auto auto 10px;
+    width: 90%;
+}
+
+#barra2{
+    margin: auto auto 10px;
+    width: 100%;
+}
+.mg5{
+    margin: 0 0 0 5px;
+}
+
+.mgt5{
+    margin: 10px;
+}
+
+.tablaA{
+    height: 400px !important;
+    overflow: auto;
+    width: 700px;
+}
