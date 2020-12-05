@@ -145,7 +145,7 @@
 				</td>
 
 			    <td>
-                    <a href="controladores/controlador.php?nombre=<?=$elemento?>&tipo=<?=$tipo?>&ruta=<?=$rutaActual?>">eliminar</a>
+                    <a href="controladores/controlador.php?nombre=<?=$elemento?>&tipo=<?=$tipo?>&ruta=<?=$rutaActual?>&action=eliminar">eliminar</a>
                     <!--<form action="controladores/controlador.php?nombre=<?=$elemento?>&tipo=<?=$tipo?>&ruta=<?=$rutaActual?>" method="GET">
                             <button class="btn btn-danger" title="eliminar" type="submit"><i class="fas fa-trash-alt"></i></button>
                         </form>-->
