@@ -70,6 +70,7 @@ if($action == "eliminar"){
     else{
         eliminarArchivo($nombre,$rutaActual);
     }
+}
 
 if($action == "editar"){
     $viejo = $_GET['viejo'];
