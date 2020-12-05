@@ -22,7 +22,7 @@ function crearArchivo($archivo,$ruta){
 }
 
 function eliminarDirectorio($directorio,$ruta){
-    shell_exec("rm -rf $ruta/$directorio");
+    shell_exec("rm -R $ruta/$directorio");
 }
 #Funcion para eliminar los archivos
 function eliminarArchivo($archivo,$ruta){
