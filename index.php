@@ -118,7 +118,7 @@
 			$permisos = shell_exec("stat -c %a controladores/$rutaActual/$elemento"); #extrae los permisos
 
 
-			if($tipo=="directorio"){
+			if($tipo=="carpeta"){
 				$nuevaRuta=$rutaActual."/".$elemento;
 				?> 
 				<tr>

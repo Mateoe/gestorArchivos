@@ -16,7 +16,7 @@ function listar($ruta){
             $listaConTipo[$elemento]='archivo';
         }
         elseif(is_dir("$ruta/$elemento")){
-            $listaConTipo[$elemento]='directorio';
+            $listaConTipo[$elemento]='carpeta';
         }
     }
 
