@@ -113,6 +113,11 @@
         <?php
 		
 		foreach($listaConTipoMostrar as $elemento =>$tipo){
+
+			$propietario = shell_exec("stat -c %U controladores/$rutaActual/$elemento"); #extrae el propietario
+			$permisos = shell_exec("stat -c %a controladores/$rutaActual/$elemento"); #extrae los permisos
+
+
 			if($tipo=="directorio"){
 				$nuevaRuta=$rutaActual."/".$elemento;
 				?> 
@@ -130,6 +135,15 @@
 				<?php
 			}
 			?>
+
+				<td>
+					<label> <?=$propietario?> </label>
+				</td>
+
+				<td>
+					<label> <?=$permisos?> </label>
+				</td>
+
 			    <td>
                         <form action="delete_p.php" method="POST">
                             <button class="btn btn-danger" title="eliminar" type="submit"><i class="fas fa-trash-alt"></i></button>
