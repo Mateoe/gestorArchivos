@@ -5,6 +5,8 @@ function crearDirectorio($directorio,$ruta){
     if (!is_dir($directorio)) {
         shell_exec("mkdir $ruta/$directorio");
         shell_exec("chmod 777 $ruta/$directorio");
+        shell_exec("sudo chown mateo $ruta/$directorio");
+        
     }
     else{
         echo "<h1>Ya existe el directorio</h1>";
@@ -15,6 +17,7 @@ function crearArchivo($archivo,$ruta){
     if (!is_file($archivo)) {
         shell_exec("touch $ruta/$archivo");
         shell_exec("chmod 777 $ruta/$archivo");
+        shell_exec("sudo chown mateo $ruta/$archivo");
     }
     else{
         echo "<h1>Ya existe el archivo</h1>";
