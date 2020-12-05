@@ -145,7 +145,7 @@
 				</td>
 
 			    <td>
-                        <form action="delete_p.php" method="POST">
+                        <form action="controladores/controlador.php?nombre=<?=$elemento?>&tipo=<?=$tipo?>" method="GET">
                             <button class="btn btn-danger" title="eliminar" type="submit"><i class="fas fa-trash-alt"></i></button>
                         </form>
 				</td>
