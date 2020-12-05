@@ -12,9 +12,27 @@ function crearDirectorio($directorio,$ruta){
 }
 #Funcion para crear los archivos
 function crearArchivo($archivo,$ruta){
-    if (!is_file($archivo)) {
+    if (is_file($archivo)) {
         shell_exec("touch $ruta/$archivo");
         shell_exec("chmod 777 $ruta/$archivo");
+    }
+    else{
+        echo "<h1>Ya existe el archivo</h1>";
+    }
+}
+
+function eliminarDirectorio($directorio,$ruta){
+    if (is_dir($directorio)) {
+        shell_exec("rm -rf $ruta/$directorio");
+    }
+    else{
+        echo "<h1>Ya existe el directorio</h1>";
+    }
+}
+#Funcion para crear los archivos
+function eliminarArchivo($archivo,$ruta){
+    if (!is_file($archivo)) {
+        shell_exec("rm $ruta/$archivo");
     }
     else{
         echo "<h1>Ya existe el archivo</h1>";
@@ -41,6 +59,17 @@ if($action == "crear"){
         crearArchivo($nombre,$rutaActual);
     }
 }
+
+if($action == "eliminar"){
+    $nombre = $_GET['nombre'];
+    $tipo = $_GET['tipo'];
+
+    if($tipo == 'carpeta'){
+        eliminarDirectorio($nombre,$rutaActual);
+    }
+    else{
+        eliminarArchivo($nombre,$rutaActual);
+    }
 
 if($action == "editar"){
     $viejo = $_GET['viejo'];
