@@ -26,7 +26,7 @@ function eliminarDirectorio($directorio,$ruta){
         shell_exec("rm -rf $directorio");
     }
     else{
-        echo "<h1>Ya existe el directorio</h1>";
+        echo "<h1>No existe el directorio</h1>";
     }
 }
 #Funcion para eliminar los archivos
@@ -35,7 +35,7 @@ function eliminarArchivo($archivo,$ruta){
         shell_exec("rm $archivo");
     }
     else{
-        echo "<h1>Ya existe el archivo</h1>";
+        echo "<h1>No existe el archivo</h1>";
     }
 }
 
