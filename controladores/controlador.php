@@ -37,7 +37,7 @@ if($action == "crear"){
     if($tipo == 'carpeta'){
         crearDirectorio($nombre,$rutaActual);
     }
-    elseif($tipo == 'archivo'){
+    else{
         crearArchivo($nombre,$rutaActual);
     }
 }

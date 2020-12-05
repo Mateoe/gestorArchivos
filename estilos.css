@@ -7,7 +7,7 @@
 
 #barra{
     margin: auto auto 10px;
-    width: 100%;
+    width: 90%;
 }
 
 #barra2{
@@ -22,3 +22,8 @@
     margin: 10px;
 }
 
+.tablaA{
+    height: 400px !important;
+    overflow: auto;
+    width: 500px;
+}
