@@ -58,18 +58,27 @@
 	               <form action="controladores/controlador.php" method="get">
                         <div class="modal-body">
 	                       <label>Usuarios: </label>
-		                   <select class="form-control" id="lista-usuarios" name="lista-usuarios">
+		                   <select class="form-control" id="lista-usuarios" name="propietario">
 						   <option value="creador">Creador</option>
 							<option value="alvarez">Alvarez</option>
 							<option value="beltran">Beltran</option>
 							<option value="espinal">Espinal</option>
 							<option value="mateo">Mateo</option>
 						   </select>
-                           <input id="barra" type="text" name="objeto" hidden/>
+                           <input id="barra" type="text" name="nombre" hidden/>
+						   <?php
+				                if(!empty($_GET["ruta"])){
+					                $ruta = $_GET["ruta"];
+				                }
+				                else{
+					                $ruta= "raiz";
+				                }
+				            echo "<input id='barra2' type='text' name='ruta' value=$ruta hidden/>";
+		                    ?>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
-                            <input type="submit" class="btn btn-primary" name="action" value="cambiar"></input>
+                            <input type="submit" class="btn btn-primary" name="action" value="cambiarPropietario"></input>
                         </div>
 	              </form>
                 </div>
@@ -89,7 +98,7 @@
                         <div class="modal-body">
 						<div class="form-group">
 	                       <label for="lista-propietario">Propietario: </label>
-		                   <select class="form-control" id="lista-propietario" name="lista-usuarios">
+		                   <select class="form-control" id="lista-propietario" name="propietarios">
 						   <option value="0">0</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -102,7 +111,7 @@
 							</div>
 							<div class="form-group">
 						   <label for="lista-grupo">Grupo: </label>
-						   <select class="form-control" id="lista-grupo" name="lista-usuarios">
+						   <select class="form-control" id="lista-grupo" name="grupo">
 						   <option value="0">0</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -115,7 +124,7 @@
 						   </div>
 						   <div class="form-group">
 						   <label for="lista-otros">Otros: </label>
-						   <select class="form-control" id="lista-otros" name="lista-usuarios">
+						   <select class="form-control" id="lista-otros" name="otros">
 						   <option value="0">0</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -126,11 +135,20 @@
 							<option value="7">7</option>
 						   </select>
 						   </div>
-						   <input id="barra" type="text" name="objeto" hidden/>
+						   <input id="barra" type="text" name="nombre" hidden/>
+						   <?php
+				                if(!empty($_GET["ruta"])){
+					                $ruta = $_GET["ruta"];
+				                }
+				                else{
+					                $ruta= "raiz";
+				                }
+				            echo "<input id='barra2' type='text' name='ruta' value=$ruta hidden/>";
+		                    ?>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
-                            <input type="submit" class="btn btn-primary" name="action" value="guardar"></input>
+                            <input type="submit" class="btn btn-primary" name="action" value="cambiarPermisos"></input>
                         </div>
 	              </form>
                 </div>
