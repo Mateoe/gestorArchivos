@@ -154,6 +154,7 @@
                 </div>
             </div>
         </div>
+		
 </head>
 <body>
 	<header class="container"><h1 class="header">Explorador de archivos Linux</h1></header>
@@ -206,7 +207,7 @@
 		$listaConTipoMostrar=listar("controladores/$rutaActual");
 		?> 
 		<div class="tablaA">
-        <table class="table border-rounded table-striped">
+        <table class="table border-rounded table-striped" id="tabla">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col" class="text-center">Nombre</th>
@@ -216,7 +217,22 @@
 							<th></th>
 							<th></th>
 							<th></th>
-							<th><input class="btn btn-success" type="submit" name="action" value="Pegar"/> </th>
+							<th>
+							<form action="controladores/controlador.php" method="get">
+							<input class="btn btn-success" type="submit" name="action" value="Pegar"/> 
+							<input type="text" name="arrastre" value="<?php echo $_GET["arrastre"];?>" hidden /> 
+							<input type="text" name="accion" value="<?php echo $_GET["accion"];?>" hidden /> 
+							<?php
+	                            if(!empty($_GET["ruta"])){
+	                               $ruta = $_GET["ruta"];
+		                        }
+	                            else{
+	                               $ruta= "raiz";
+	                            }
+	                            echo "<input id='rutaM' type='text' name='ruta' value=$ruta hidden/>";
+	                        ?>
+							</form>
+							</th>
 							
 							
                         </tr>
@@ -233,10 +249,22 @@
 
 			if($tipo=="carpeta"){
 				$nuevaRuta=$rutaActual."/".$elemento;
+               if(!empty($_GET["arrastre"])){
+					$arrastre=$_GET["arrastre"];
+				}
+				else{
+					$arrastre="";
+				}
+				if(!empty($_GET["accion"])){
+					$accion=$_GET["accion"];
+				}
+				else{
+					$accion="";
+				}
 				?> 
 				<tr>
 					
-				   <td><a href='controladores/controlador.php?ruta=<?=$nuevaRuta;?>'><?=$elemento;?></a></td>
+				   <td><a href='controladores/controlador.php?ruta=<?=$nuevaRuta;?>&arrastre=<?=$arrastre?>&accion=<?=$accion?>'><?=$elemento;?></a></td>
 				   
 				<?php
 			}
@@ -285,7 +313,7 @@
                     
 				</td>
 				<td>
-				<input class="mg5" type="checkbox" name="tipo" value="archivo"/>
+				<input class="seleccionar" type="checkbox" name="checkbox" id="checkbox"/>
 				</td>
 				
 			</tr>
@@ -298,11 +326,55 @@
 	</table>
 	
 	</div>
-	<button class="btn btn-secondary" title="editar permisos" type="submit" value="Aplicar">Aplicar</button>
-	Copiar
-        <input class="js-switch" type="checkbox" />
-	Cortar
+	<div class="container">
+	<div class="col-9">
+	   <form action="controladores/controlador.php" method="GET">
+	        <input class="btn btn-secondary" title="Aplicar" type="submit" value="Aplicar" name="action" id="btn">
+	        Copiar
+            <input class="js-switch" type="checkbox" name="accion" value="cortar"/>
+	        Cortar
+	        <?php
+	        if(!empty($_GET["ruta"])){
+	        $ruta = $_GET["ruta"];
+		    }
+	        else{
+	        $ruta= "raiz";
+	        }
+	        echo "<input id='rutaM' type='text' name='ruta' hidden value=$ruta />";
+	        ?>
+            <input id="checkbox-seleccionados" type="text" name="nombre" hidden/>
+	    </form>
 	</div>
+	<div class="col-3">
+	<form action="controladores/controlador.php" method="GET">
+	   <input class="btn btn-success" type="submit" name="action" value="Volver"/> 
+	   <?php
+	        if(!empty($_GET["ruta"])){
+	        $ruta = $_GET["ruta"];
+		    }
+	        else{
+	        $ruta= "raiz";
+	        }
+			echo "<input id='rutaM' type='text' name='ruta' hidden value=$ruta />";
+			if(!empty($_GET["ruta"])){
+				$arrastre=$_GET["arrastre"];
+			}
+			else{
+				$arrastre="";
+			}
+			echo "<input id='rutaM' type='text' name='arrastre' hidden value=$arrastre />";
+	        ?>
+			
+				
+	</form>   
+	</div>
+	
+	</div>
+
+	
+
+    
+	
 	
 	</div>
 	

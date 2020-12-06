@@ -48,11 +48,20 @@ function cambiarPermisos($ruta,$nombreDocumento,$nuevosPermisos){
     shell_exec("sudo chmod $nuevosPermisos $ruta/$nombreDocumento");
 }
 
+function cortar($nombre,$ruta){
+    shell_exec("mv $nombre $ruta");
+}
+
+function copiar($nombre,$ruta){
+    shell_exec("cp $nombre $ruta");
+}
+
 
 #Se obienen los datos del index
 $action = $_GET['action'];
 $rutaActual = $_GET["ruta"];
-
+$arrastre= $_GET["arrastre"];
+$accion= $_GET["accion"];
 
 #Se realiza la selección de opciones
 if($action == "crear"){
@@ -82,6 +91,7 @@ if($action == "eliminar"){
 if($action == "editar"){
     $viejo = $_GET['viejo'];
     $nuevo = $_GET['nuevo'];
+    
     cambiarNombre($viejo,$nuevo,$rutaActual);
     
 }
@@ -105,8 +115,48 @@ if($action =="cambiarPermisos"){
 
 }
 
+if($action=="Aplicar"){
+    $arrastre= $_GET['nombre'];
+    if($accion!="cortar"){
+      $accion= "copiar";
+    }
+}
+
+if($action=="Pegar"){
+    $arr= explode(' ',$arrastre);
+    $arr_length = count($arr);
+    
+    if($accion=="copiar"){
+        for($i=0;$i<$arr_length;$i++)
+        {  
+         copiar($arr[$i],$rutaActual); 
+        }
+    }else{
+        for($i=0;$i<$arr_length;$i++)
+        {  
+         cortar($arr[$i],$rutaActual); 
+        }
+    }
+    
+    
+    #cortar($arrastre,$rutaActual);
+}
+
+if($action=="Volver"){
+    $arr= explode("/",$rutaActual);
+    $arr_length = count($arr);
+    $rutaNueva= "raiz";
+    for($i=1;$i<$arr_length-1;$i++)
+    {
+     $rutaNueva .= "/";   
+     $rutaNueva .= $arr[$i];
+    }
+    $rutaActual= $rutaNueva;
+   
+}
+
 
 #Se redirige la pagina la index nuevamente
-header("Location: ../index.php?ruta=$rutaActual");
+header("Location: ../index.php?ruta=$rutaActual&accion=$accion&arrastre=$arrastre");
 
 ?>

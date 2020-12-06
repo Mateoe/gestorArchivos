@@ -24,3 +24,31 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     var modal = $(this)
     modal.find('.modal-body #barra').val(recipient)
   })
+
+
+
+document.querySelectorAll('.seleccionar').forEach(item => {
+  item.addEventListener('change',selectRadio,true);
+})
+
+function selectRadio(){
+  ruta= document.getElementById("rutaM").value
+  var resultado= "";
+   $("input[type=checkbox]:checked").each(function(){
+   var cont= 0;
+
+ $(this).closest('td').siblings().each(function(){
+   if(cont===0){
+     var string= $(this).text();
+     resultado+= ruta+"/"+string+" "
+     
+   }    
+   cont = cont + 1;
+ });
+
+});
+ document.getElementById("checkbox-seleccionados").value= resultado
+ 
+}
+ 
+
