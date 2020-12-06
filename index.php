@@ -298,6 +298,7 @@
 	</table>
 	
 	</div>
+	<button class="btn btn-secondary" title="editar permisos" type="submit" value="Aplicar">Aplicar</button>
 	Copiar
         <input class="js-switch" type="checkbox" />
 	Cortar
