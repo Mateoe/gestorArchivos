@@ -53,7 +53,7 @@ function cortar($nombre,$ruta){
 }
 
 function copiar($nombre,$ruta){
-    shell_exec("cp $nombre $ruta");
+    shell_exec("cp -r $nombre $ruta");
 }
 
 

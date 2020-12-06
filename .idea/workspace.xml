@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2aec1f1d-aa6c-4e7c-beff-3f8646fb37d6" name="Default Changelist" comment="Creada función para borrar archivos y carpetas">
-      <change beforePath="$PROJECT_DIR$/controladores/controlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/controlador.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +48,7 @@
       <workItem from="1607086444180" duration="7529000" />
       <workItem from="1607107701499" duration="4200000" />
       <workItem from="1607123695132" duration="601000" />
-      <workItem from="1607172833930" duration="6983000" />
+      <workItem from="1607172833930" duration="18212000" />
     </task>
     <task id="LOCAL-00001" summary="Creada función para borrar archivos y carpetas">
       <created>1607106372642</created>
@@ -141,7 +141,42 @@
       <option name="project" value="LOCAL" />
       <updated>1607181461051</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Creada función para borrar archivos y carpetas">
+      <created>1607181567584</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1607181567584</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Creada función para borrar archivos y carpetas">
+      <created>1607181578971</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1607181578971</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Creada función para borrar archivos y carpetas">
+      <created>1607181708743</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1607181708743</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Creada función para borrar archivos y carpetas">
+      <created>1607182011177</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1607182011177</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Creada función para borrar archivos y carpetas">
+      <created>1607182446846</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1607182446846</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
